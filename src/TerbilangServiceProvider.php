@@ -13,7 +13,7 @@ class TerbilangServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require __DIR__ . '/Terbilang.php';
+        //
     }
 
     /**
@@ -26,5 +26,10 @@ class TerbilangServiceProvider extends ServiceProvider
       $this->app->bind('terbilang',function($app){
         return new Terbilang($app);
       });
+      $this->app->booting(function()
+        {
+            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+            $loader->alias('Terbilang', 'Tuta\Terbilang\Facades\TerbilangFacade');
+        });
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Tuta\Terbilang;
+
 class Terbilang {
 
   public static function angka($angka)
